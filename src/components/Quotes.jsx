@@ -16,17 +16,12 @@ const Quotes = () => {
 
       try {
         const response = await fetch(url, options);
-        const data = await response.json();
-
-        if (data.length > 0) {
-          setQuote(data[0].media);
-        } else {
-          setQuote('No quotes found.');
-        }
+        const result = await response.text();
+        console.log(result);
       } catch (error) {
-        console.error('Error fetching quote:', error);
-        setQuote('Error fetching quote.');
+        console.error(error);
       }
+
     };
 
     fetchQuote();
@@ -36,7 +31,7 @@ const Quotes = () => {
     <div>
       <h2>Quote for Inspiration</h2>
       <blockquote>
-        {quote}
+        {quote} hello quote
       </blockquote>
     </div>
   );

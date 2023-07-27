@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Quotes from './Quotes';
+import Quotes from './components/Quotes';
 import './App.css';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <nav>
-        <h1>MIND @ EASE</h1>
+        <h1 id="title">MIND @ EASE</h1>
         <h2>Welcome to your world of creativity</h2>
         <button>Home</button>
         <button>Saved</button>
@@ -16,6 +16,9 @@ function App() {
       <main>
         <Quotes />
       </main>
+      <div>
+        <button>Refresh</button>
+      </div>
     </>
   );
 }

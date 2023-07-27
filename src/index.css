@@ -1,7 +1,7 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 300;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -26,14 +26,42 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column; /* Change to column layout */
+  align-items: center; /* Center content horizontally */
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url(background.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+};
+
+h2 {
+  margin: 30px;
+  align-items:center;
+  color:#1a1a1a;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+nav {
+  display:contents;
+  position: fixed;
+  top: 0;
+}
+
+#title {
+  font-size: 4em;
+  line-height: 1.5;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 40px 30px 30px 30px;
+  background-color: rgba(6, 198, 38, 0.4);
+  border-radius: 8%;
+  color:#1a1a1a;
+}
+
+blockquote {
+  font-style: italic;
+  color: #646cff;
+  font-size: 1.2em;
 }
 
 button {
@@ -46,6 +74,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 20px;
 }
 button:hover {
   border-color: #646cff;
@@ -54,6 +83,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
 
 @media (prefers-color-scheme: light) {
   :root {
