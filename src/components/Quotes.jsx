@@ -2,37 +2,60 @@ import React, { useEffect, useState } from 'react';
 
 const Quotes = () => {
   const [quote, setQuote] = useState('');
+  const [refreshCount, setRefreshCount] = useState(0);
+
+  // let API_KEY = 'slLKXe8niunyBJ1CI4GglA==miYB7SoEwaIImlBx'
 
   useEffect(() => {
+    // Replace 'YOUR_API_KEY' with your actual API key
+    const apiKey = 'slLKXe8niunyBJ1CI4GglA==miYB7SoEwaIImlBx';
+    const category = 'happiness'; // You can change the category or make it dynamic based on user input
+
     const fetchQuote = async () => {
-      const url = 'https://healthruwords.p.rapidapi.com/v1/quotes/?t=Wisdom&maxR=1&size=medium&id=731';
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': 'f8cd80ea91msh402cc4346626cf4p17407ejsn91636161557c',
-          'X-RapidAPI-Host': 'healthruwords.p.rapidapi.com'
-        }
-      };
-
       try {
-        const response = await fetch(url, options);
-        const result = await response.text();
-        console.log(result);
-      } catch (error) {
-        console.error(error);
-      }
+        const response = await fetch(
+          `https://api.api-ninjas.com/v1/quotes`,
+          {
+            method: 'GET',
+            headers: { 'X-Api-Key': apiKey },
+          }
+        );
 
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        if (data && data.length > 0) {
+          // Choose a random quote from the fetched data
+          const randomIndex = Math.floor(Math.random() * data.length);
+          setQuote(data[randomIndex].quote);
+
+        } else {
+          setQuote('No quotes found.');
+        }
+      } catch (error) {
+        console.error('Error fetching quote:', error);
+        setQuote('Error fetching quote.');
+      }
     };
 
     fetchQuote();
-  }, []);
+  }, [refreshCount]);
+
+  const handleRefreshClick = () => {
+    // Increase the refreshCount to trigger a re-render and fetch a new quote
+    setRefreshCount((prevRefreshCount) => prevRefreshCount + 1);
+  };
+
 
   return (
-    <div>
-      <h2>Quote for Inspiration</h2>
+    <div id="quoteDiv">
+      <h2>A Quote for Inspiration</h2>
       <blockquote>
-        {quote} hello quote
+        {quote}
       </blockquote>
+      <button onClick={handleRefreshClick}>Refresh</button>
     </div>
   );
 };

@@ -17,7 +17,7 @@ function App() {
         <Quotes />
       </main>
       <div>
-        <button>Refresh</button>
+        {/* <button onClick={}>Refresh</button> */}
       </div>
     </>
   );
