@@ -9,9 +9,9 @@ function App() {
     <>
       <nav>
         <h1 id="title">MIND @ EASE</h1>
-        <h2>Welcome to your world of creativity</h2>
-        <button>Home</button>
-        <button>Saved</button>
+        <h2 class="subtitle is-2" >Welcome To Your World Of Creativity</h2>
+        <button class="button is-success">Home</button>
+        <button class="button is-success">Saved</button>
       </nav>
       <main>
         <Quotes />

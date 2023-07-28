@@ -50,13 +50,17 @@ const Quotes = () => {
 
 
   return (
-    <div id="quoteDiv">
-      <h2>A Quote for Inspiration</h2>
-      <blockquote>
-        {quote}
-      </blockquote>
-      <button onClick={handleRefreshClick}>Refresh</button>
-    </div>
+    <>
+      <h2 class="subtitle is-3">A Quote For Inspiration</h2>
+      <div class="box">
+        <blockquote>
+          {quote}
+        </blockquote>
+      </div>
+      <div>
+        <button class="button is-success" onClick={handleRefreshClick}>Refresh</button>
+      </div>
+    </>
   );
 };
 
