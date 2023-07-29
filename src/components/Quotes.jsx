@@ -48,6 +48,7 @@ const Quotes = () => {
     setRefreshCount((prevRefreshCount) => prevRefreshCount + 1);
   };
 
+  
 
   return (
     <>
@@ -56,6 +57,7 @@ const Quotes = () => {
         <blockquote>
           {quote}
         </blockquote>
+        <button class="button is-small is-success is-light is-rounded">Save</button>
       </div>
       <div>
         <button class="button is-success" onClick={handleRefreshClick}>Refresh</button>
