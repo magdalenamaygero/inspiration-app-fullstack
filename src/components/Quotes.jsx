@@ -52,15 +52,15 @@ const Quotes = () => {
 
   return (
     <>
-      <h2 class="subtitle is-3">Take A Quote For Inspiration</h2>
+      <h2 class="subtitle is-3">Habe A Quote For Inspiration</h2>
       <div class="box">
         <blockquote>
           {quote}
         </blockquote>
-        <button class="button is-small is-link is-light is-rounded">Favorite</button>
+        <button id="fav" class="button is-small is-link is-light is-rounded">Favorite</button>
       </div>
       <div>
-        <button class="button is-link is-light" onClick={handleRefreshClick}>Refresh</button>
+        <button id="refresh" class="button is-link is-light" onClick={handleRefreshClick}>Refresh</button>
       </div>
     </>
   );
