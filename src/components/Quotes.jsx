@@ -48,19 +48,33 @@ const Quotes = () => {
     setRefreshCount((prevRefreshCount) => prevRefreshCount + 1);
   };
 
+
+  const handleSaveClick = () => {
+    if (quote) {
+      // Get the existing saved quotes from localStorage or initialize an empty array
+      const savedQuotesData = localStorage.getItem('savedQuotes');
+      const savedQuotes = savedQuotesData ? JSON.parse(savedQuotesData) : [];
+
+      // Add the new quote to the array
+      savedQuotes.push(quote);
+
+      // Save the updated array back to localStorage
+      localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
+    }
+  };
   
 
   return (
     <>
-      <h2 class="subtitle is-3">Habe A Quote For Inspiration</h2>
-      <div class="box">
+      <h2 className="subtitle is-3">Take a Quote For Inspiration</h2>
+      <div className="box">
         <blockquote>
           {quote}
         </blockquote>
-        <button id="fav" class="button is-small is-link is-light is-rounded">Favorite</button>
+        <button id="fav" className="button is-small is-success is-light is-rounded" onClick={handleSaveClick}>Favorite</button>
       </div>
       <div>
-        <button id="refresh" class="button is-link is-light" onClick={handleRefreshClick}>Refresh</button>
+        <button id="refresh" className="button is-link is-light" onClick={handleRefreshClick}>Refresh</button>
       </div>
     </>
   );
