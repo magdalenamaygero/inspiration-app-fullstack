@@ -19,7 +19,7 @@ const SavedQuotes = () => {
       ) : (
         <ul>
           {savedQuotes.map((quote, index) => (
-            <li key={index}>{quote}</li>
+            <li className="quote" key={index}>{quote}</li>
           ))}
         </ul>
       )}
