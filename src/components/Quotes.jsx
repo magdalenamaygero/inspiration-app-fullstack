@@ -7,10 +7,8 @@ const Quotes = () => {
   // let API_KEY = 'slLKXe8niunyBJ1CI4GglA==miYB7SoEwaIImlBx'
 
   useEffect(() => {
-    // Replace 'YOUR_API_KEY' with your actual API key
     const apiKey = 'slLKXe8niunyBJ1CI4GglA==miYB7SoEwaIImlBx';
-    const category = 'happiness'; // You can change the category or make it dynamic based on user input
-
+    const category = 'happiness';
     const fetchQuote = async () => {
       try {
         const response = await fetch(
